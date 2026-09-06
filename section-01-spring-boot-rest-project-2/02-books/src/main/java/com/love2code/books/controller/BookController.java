@@ -74,14 +74,19 @@ public class BookController {
     // zoekt een boek op id
     @Operation(summary = "Get book by ID", description = "Returns a book by its ID")
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getBookById(@Parameter(description = "ID of the book to retrieve") @PathVariable @Min(1) long id) {
-
+    public Book getBookById(@Parameter(description = "ID of the book to retrieve") @PathVariable @Min(1) long id) {
+/*
         Book book = books.stream()
                 .filter(b -> b.getId() == id)
                 .findFirst()
                 .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
         return ResponseEntity.ok(book);
 
+ */
+    return books.stream()
+            .filter(b -> b.getId() == id)
+            .findFirst()
+            .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
     /*
     @GetMapping("/api/books/{title}") daki path varaible'in sonda olmasina gerek yok
     arada da olabilir
@@ -109,37 +114,32 @@ public class BookController {
     @Operation(summary = "Update an existing book", description = "Updates an existing book by its ID")
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@Parameter(description = "ID of the book to update") @PathVariable long id, @Valid @RequestBody BookRequest updatedBook) {
-        return books.stream()
-                .filter(book -> book.getId() == id)
+        Book book = books.stream()
+                .filter(b -> b.getId() == id)
                 .findFirst()
-                .map(book -> {
-                    book.setTitle(updatedBook.getTitle());
-                    book.setAuthor(updatedBook.getAuthor());
-                    book.setCategory(updatedBook.getCategory());
-                    book.setRating(updatedBook.getRating());
-                    return ResponseEntity.ok(book);
-                })
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        book.setTitle(updatedBook.getTitle());
+        book.setAuthor(updatedBook.getAuthor());
+        book.setCategory(updatedBook.getCategory());
+        book.setRating(updatedBook.getRating());
+
+        return ResponseEntity.ok(book);
     }
     // verwijdert een boek op basis van de id
     @Operation(summary = "Delete a book", description = "Deletes a book by its ID")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@Parameter(description = "ID of the book to delete") @PathVariable @Min(1) long id) {
-        boolean removed = books.removeIf(book -> book.getId() == id);
-        return removed ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+        Book book = books.stream()
+                .filter(b -> b.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        books.remove(book);
+        return ResponseEntity.noContent().build();
     }
     private Book convertToBook(long id, BookRequest bookRequest) {
         return new Book(id, bookRequest.getTitle(), bookRequest.getAuthor(),
                 bookRequest.getCategory(), bookRequest.getRating());
     }
-
-    @ExceptionHandler
-    public ResponseEntity<BookErrorResponse> handleBookNotFoundException(BookNotFoundException ex) {
-        BookErrorResponse errorResponse = new BookErrorResponse(
-                HttpStatus.NOT_FOUND.value(),
-                ex.getMessage(),
-                System.currentTimeMillis()
-        );
-        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
-        }
 }
