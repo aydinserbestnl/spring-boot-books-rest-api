@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.luv2code</groupId>
-	<artifactId>spring-boot-books-rest-api</artifactId>
+	<artifactId>01-books</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
