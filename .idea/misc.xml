@@ -7,7 +7,13 @@
         <option value="$PROJECT_DIR$/01-books/pom.xml" />
         <option value="$PROJECT_DIR$/02-books/pom.xml" />
         <option value="$PROJECT_DIR$/employees/pom.xml" />
+        <option value="$PROJECT_DIR$/employee-security/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/employees-security/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-26" project-jdk-type="JavaSDK" />

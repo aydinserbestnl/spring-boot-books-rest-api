@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="01-books" />
+        <module name="employee-security" />
         <module name="02-books" />
         <module name="employees" />
-        <module name="01-books" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,7 @@
       <module name="01-books" options="-parameters" />
       <module name="02-books" options="-parameters" />
       <module name="books" options="-parameters" />
+      <module name="employee-security" options="-parameters" />
       <module name="employees" options="-parameters" />
       <module name="spring-boot-books-rest-api" options="-parameters" />
     </option>
