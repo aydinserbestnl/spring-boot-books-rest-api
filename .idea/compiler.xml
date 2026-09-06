@@ -6,14 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-boot-books-rest-api" />
-        <module name="books" />
+        <module name="02-books" />
+        <module name="employees" />
+        <module name="01-books" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="books" target="26" />
+      <module name="spring-boot-books-rest-api" target="26" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="01-books" options="-parameters" />
+      <module name="02-books" options="-parameters" />
       <module name="books" options="-parameters" />
+      <module name="employees" options="-parameters" />
       <module name="spring-boot-books-rest-api" options="-parameters" />
     </option>
   </component>
