@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.love2code</groupId>
-	<artifactId>books</artifactId>
+	<artifactId>02-books</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>

@@ -4,9 +4,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/section-01-spring-boot-rest-project-1/01-books/pom.xml" />
-        <option value="$PROJECT_DIR$/section-01-spring-boot-rest-project-2/02-books/pom.xml" />
+        <option value="$PROJECT_DIR$/01-books/pom.xml" />
+        <option value="$PROJECT_DIR$/02-books/pom.xml" />
+        <option value="$PROJECT_DIR$/employees/pom.xml" />
       </list>
     </option>
   </component>
