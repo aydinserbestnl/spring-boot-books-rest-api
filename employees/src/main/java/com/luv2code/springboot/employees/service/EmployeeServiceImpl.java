@@ -1,4 +1,4 @@
-package com.luv2code.springboot.employees.employee;
+package com.luv2code.springboot.employees.service;
 
 import com.luv2code.springboot.employees.dao.EmployeeDAO;
 import com.luv2code.springboot.employees.entity.Employee;

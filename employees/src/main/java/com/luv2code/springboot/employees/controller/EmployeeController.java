@@ -1,7 +1,7 @@
 package com.luv2code.springboot.employees.controller;
 
 import com.luv2code.springboot.employees.dao.EmployeeDAO;
-import com.luv2code.springboot.employees.employee.EmployeeService;
+import com.luv2code.springboot.employees.service.EmployeeService;
 import com.luv2code.springboot.employees.entity.Employee;
 import com.luv2code.springboot.employees.request.EmployeeRequest;
 import io.swagger.v3.oas.annotations.Operation;
