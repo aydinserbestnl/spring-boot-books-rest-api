@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/02-books/pom.xml" />
         <option value="$PROJECT_DIR$/employees/pom.xml" />
         <option value="$PROJECT_DIR$/employee-security/pom.xml" />
+        <option value="$PROJECT_DIR$/employee-jdbc-security/pom.xml" />
+        <option value="$PROJECT_DIR$/todos/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
